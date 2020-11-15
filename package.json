@@ -8,7 +8,7 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "start": "concurrently --kill-others \"npm run base\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NODE_ENV=production npm run base"
   },
   "dependencies": {
     "concurrently": "^5.3.0",
