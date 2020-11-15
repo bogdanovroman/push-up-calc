@@ -7,7 +7,7 @@
     "base": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "start": "concurrently --kill-others \"npm run base\" \"npm run client\""
+    "start": "NODE_ENV=production nodemon index.js"
   },
   "dependencies": {
     "concurrently": "^5.3.0",
