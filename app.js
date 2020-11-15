@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require('cors')
+const cors = require('cors');
+const path = require("path");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 require('./models/Trainings');
@@ -117,8 +118,7 @@ app.use('/api/auth', async (req, res) => {
 if (process.env.NODE_ENV === "production") {
   console.log('-------- build ----------');
   app.use(express.static("client/build"));
-  const path = require("path");
-  app.get("*", (req, res) => {
+  app.use("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
