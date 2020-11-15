@@ -115,6 +115,7 @@ app.use('/api/auth', async (req, res) => {
 })
 
 if (process.env.NODE_ENV === "production") {
+  console.log('-------- build ----------');
   app.use(express.static("client/build"));
   const path = require("path");
   app.get("*", (req, res) => {
@@ -124,5 +125,4 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT);
-
 module.exports = app;
